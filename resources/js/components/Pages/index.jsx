@@ -10,11 +10,13 @@ import {HomePage} from "./HomePage";
 import {ArticleCreatePage} from "./ArticleCreatePage";
 import {ArticleShowPage} from "./ArticleShowPage";
 import {Loading} from "../Loading/Loading";
+import Alert from "../Alert/Alert";
 
 const Pages = () => {
     return (
         <Router history={history}>
             <Loading />
+            <Alert />
             <Header/>
             <Routes>
                 <Route path="/home" element={<HomePage/>}/>

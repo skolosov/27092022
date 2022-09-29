@@ -6,10 +6,9 @@ import Button from '@mui/material/Button';
 import AdbIcon from '@mui/icons-material/Adb';
 import styled from 'styled-components';
 import axios from "axios";
-import {useMemo, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {selectDemoMode} from "../../redux/selectors";
-import {setDemoMode} from "../../redux/generalSlice";
+import {setDemoModeAction} from "../../redux/generalSlice";
 import {SLink} from "../main.styled";
 
 const SLogoutContainer = styled.div`
@@ -49,7 +48,7 @@ const ResponsiveAppBar = () => {
         })
     }
 
-    const onToggleDemoMode = () => dispatch(setDemoMode(!isDemoMode));
+    const onToggleDemoMode = () => dispatch(setDemoModeAction(!isDemoMode));
 
     return (
         <AppBar position="static">

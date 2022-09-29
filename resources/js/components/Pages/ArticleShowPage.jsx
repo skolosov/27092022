@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {showArticleAction} from "../../redux/generalSlice";
 import {ArticleCreatePage} from "./ArticleCreatePage";
 

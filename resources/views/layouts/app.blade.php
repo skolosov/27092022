@@ -77,8 +77,10 @@
         @yield('content')
     </div>
     <script>
-        const userId = {{ Auth::user()->id ?? null }};
+        const userId = {{ Auth::user() ? Auth::user()->id : 0 }} ?? null;
+        const userName = '{{ Auth::user() ? Auth::user()->name : null }}';
         window.userId = userId;
+        window.userName = userName;
     </script>
 </body>
 </html>

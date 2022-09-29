@@ -5,7 +5,6 @@ import {SPageContainer, SPageContentContainer} from './Pages.styled';
 import {useDispatch, useSelector} from "react-redux";
 import {selectArticles} from "../../redux/selectors";
 import {deleteArticleAction, getArticleAction} from "../../redux/generalSlice";
-import history from '../history';
 
 const columns = [
     {id: 1, field: 'id', title: '№'},
@@ -38,7 +37,7 @@ export const HomePage = () => {
     const articles = useSelector(selectArticles);
 
     const loadArticles = () => {
-        dispatch(getArticleAction());
+        !articles.length && dispatch(getArticleAction());
     }
 
     useEffect(() => {
