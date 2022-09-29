@@ -20,8 +20,8 @@ return new class extends Migration
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->string('title');
-            $table->text('text');
+            $table->string('title')->default('Нет заголовка');
+            $table->text('text')->default('Нет текста статьи');
             $table->timestamps();
         });
     }

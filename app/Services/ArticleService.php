@@ -10,20 +10,23 @@ class ArticleService
 {
     /**
      * @param int $userId
-     * @param string $title
-     * @param string $text
+     * @param string|null $title
+     * @param string|null $text
      * @return Article
      */
-    public function addNewArticle(int $userId, string $title, string $text)
+    public function addNewArticle(int $userId, ?string $title, ?string $text)
     {
-        /** @var Article $article */
-        $article = Article::query()->create([
-            'author_id' => $userId,
-            'title' => $title,
-            'text' => $text,
-        ]);
+        $article = new Article();
+        $article->author_id = $userId;
+        if ($title) {
+            $article->title = $title;
+        }
+        if ($text) {
+            $article->text = $text;
+        }
+        $article->save();
 
-        return $article;
+        return $article->refresh();
     }
 
     /**
